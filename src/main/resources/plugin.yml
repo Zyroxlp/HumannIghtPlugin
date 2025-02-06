@@ -1,0 +1,3 @@
+name: HumannightPlugin
+version: '${project.version}'
+main: org.humannight.humannightplugin.HumannightPlugin
