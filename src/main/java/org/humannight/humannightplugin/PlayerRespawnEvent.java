@@ -3,18 +3,13 @@ package org.humannight.humannightplugin;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerQuitEvent;
-
-import java.io.IOException;
-import java.sql.SQLException;
+import org.humannight.humannightplugin.clientservercomunication.MessageSender;
 
 public class PlayerRespawnEvent implements Listener {
 
     @EventHandler
-    public void Event(org.bukkit.event.player.PlayerRespawnEvent event) throws SQLException, IOException {
+    public void Event(org.bukkit.event.player.PlayerRespawnEvent event){
         Player player = event.getPlayer();
-        HumannightPlugin.sendMessageToClient("OH " + player.getDisplayName() + " ist wiederauferstanden UwU");
+        MessageSender.sendHiddenMessage(player,"Moin");
     }
-
-
 }
