@@ -4,11 +4,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.humannight.humannightplugin.clientservercomunication.CommandHandlerClientCom;
+import org.humannight.humannightplugin.playersystem.joinEvent;
 
 public final class HumannightPlugin extends JavaPlugin {
 
-    public static MySQL mysqlchar;
-    public static MySQL mysqlbank;
+    public static MySQL mysqlplayer;
 
     private static HumannightPlugin instance;
 
@@ -19,7 +19,11 @@ public final class HumannightPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         PluginManager pluginmanager = Bukkit.getPluginManager();
+
+        loadMySql();
+
         pluginmanager.registerEvents(new PlayerRespawnEvent(),this);
+        pluginmanager.registerEvents(new joinEvent(),this);
 
         instance = this;
         this.getCommand("senddatafromclient").setExecutor(new CommandHandlerClientCom());
@@ -32,11 +36,10 @@ public final class HumannightPlugin extends JavaPlugin {
 
     public  static void loadMySql()  {
         String host = "localhost";
-        String user = "root";
+        String user = "mc";
         int port = 3306;
-        String pw = "r1BJ(b5`gK4<";
-        mysqlchar = new MySQL(host,port, "chars",user,pw);
-        mysqlbank = new MySQL(host,port, "Bank",user,pw);
+        String pw = "oz]8-xFjL1TFU(Zb";
+        mysqlplayer = new MySQL(host,port, "mc",user,pw);
     }
 
 

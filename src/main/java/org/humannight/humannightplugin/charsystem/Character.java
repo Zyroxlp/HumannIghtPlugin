@@ -24,11 +24,11 @@ public class Character {
     @Getter
     private Integer id;
 
-    public Character(String name, LocalDate birthday, String skin, String gender, String eyeColor, String hairStyle, String hairColor, Integer id) {
+    public Character(String name, LocalDate birthday, String skin, String sex, String eyeColor, String hairStyle, String hairColor, Integer id) {
         this.name = name;
         this.birthday = birthday;
         this.skin = skin;
-        this.gender = gender;
+        this.gender = sex;
         this.eyeColor = eyeColor;
         HairStyle = hairStyle;
         HairColor = hairColor;
