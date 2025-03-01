@@ -27,6 +27,14 @@ public class CommandHandlerClientCom implements CommandExecutor {
 
                             break;
 
+                        case "keypressed":
+                            switch (args[2]) {
+                                case "F12":
+                                    player.sendMessage("pressed F12");
+                                    break;
+                            }
+                            break;
+
                         default:
                             player.sendMessage(ChatColor.GREEN + "Daten erfolgreich empfangen!");
                             break;

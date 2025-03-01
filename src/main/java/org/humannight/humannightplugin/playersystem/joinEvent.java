@@ -19,6 +19,17 @@ public class joinEvent implements Listener {
         if (!checkfirstjoin(player)) {
             createMysql(player);
         }
+
+        //send authkey
+        Bukkit.getScheduler().runTaskLater(HumannightPlugin.getPlugin(), () -> {
+            try {
+                MessageSender.sendHiddenMessage(player, "authkey " + getAuthCode(player)); //sends the info to player to opens startgui
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        },60L);
+
+        //open startgui
         Helper.authkey.put(player,getAuthCode(player));
         Bukkit.getScheduler().runTaskLater(HumannightPlugin.getPlugin(), () -> {
             MessageSender.sendHiddenMessage(player, "joinsystem startgui"); //sends the info to player to opens startgui
